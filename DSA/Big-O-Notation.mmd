@@ -1,0 +1,33 @@
+graph TD
+    %% Define Nodes
+    Start([Input Size N]) --> Alg{Algorithm Type}
+
+    Alg -->|Excellent| O1["O(1)<br>Constant Time"]
+    Alg -->|Very Good| OlogN["O(log N)<br>Logarithmic"]
+    Alg -->|Good| ON["O(N)<br>Linear"]
+    Alg -->|Fair| ONlogN["O(N log N)<br>Linearithmic"]
+    Alg -->|Bad| ON2["O(N²)<br>Quadratic"]
+    Alg -->|Horrible| ONfact["O(N!)<br>Factorial"]
+
+    %% Descriptions & Examples
+    O1 --> D1["Time is fixed regardless of N<br><i>Ex: Array access, Hash map lookup</i>"]
+    OlogN --> D2["Time grows logarithmically<br><i>Ex: Binary Search</i>"]
+    ON --> D3["Time grows linearly with N<br><i>Ex: Linear Search, Single loop</i>"]
+    ONlogN --> D4["Time grows slightly faster than N<br><i>Ex: Merge Sort, Quick Sort</i>"]
+    ON2 --> D5["Time grows with N squared<br><i>Ex: Bubble Sort, Nested loops</i>"]
+    ONfact --> D6["Time grows extremely fast<br><i>Ex: Traveling Salesperson (Brute Force)</i>"]
+
+    %% Flow/Growth direction
+    D1 -.-> D2 -.-> D3 -.-> D4 -.-> D5 -.-> D6
+
+    %% Node Styling (Color Coding Complexity)
+    style O1 fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:#fff
+    style OlogN fill:#a3e4d7,stroke:#16a085,stroke-width:2px,color:#000
+    style ON fill:#f9e79f,stroke:#f1c40f,stroke-width:2px,color:#000
+    style ONlogN fill:#fbc02d,stroke:#f57f17,stroke-width:2px,color:#000
+    style ON2 fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#fff
+    style ONfact fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:#fff
+
+    %% Card Styling
+    classDef descCard fill:#f8f9f9,stroke:#bdc3c7,stroke-width:1px,font-style:italic;
+    class D1,D2,D3,D4,D5,D6 descCard;

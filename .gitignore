@@ -135,6 +135,22 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+# JetBrains IDE (IntelliJ, PyCharm, WebStorm, etc.)
+# Ignore user-specific and local files
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Ignore local database configs/sensitive data
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
 
 # Spyder project settings
 .spyderproject
