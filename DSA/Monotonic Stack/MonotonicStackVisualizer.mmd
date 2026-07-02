@@ -1,0 +1,48 @@
+flowchart TD
+    Start([Input Array: 7, 3, 4, 8]) --> S1
+
+    subgraph Step 1: Process 7
+        S1[Current Num: 7] --> A1[Stack is empty.<br>Push 7]
+        A1 --> R1[(Stack: 7)]
+    end
+
+    R1 --> S2
+
+    subgraph Step 2: Process 3
+        S2[Current Num: 3] --> C2{Is 3 > Top of Stack 7?}
+        C2 -- No, rule maintained --> A2[Push 3]
+        A2 --> R2[(Stack: 7, 3)]
+    end
+
+    R2 --> S3
+
+    subgraph Step 3: Process 4
+        S3[Current Num: 4] --> C3a{Is 4 > Top of Stack 3?}
+        C3a -- Yes, rule broken! --> P3a[Pop 3]
+        P3a --> C3b{Is 4 > Top of Stack 7?}
+        C3b -- No, rule maintained --> A3[Push 4]
+        A3 --> R3[(Stack: 7, 4)]
+    end
+
+    R3 --> S4
+
+    subgraph Step 4: Process 8
+        S4[Current Num: 8] --> C4a{Is 8 > Top of Stack 4?}
+        C4a -- Yes, rule broken! --> P4a[Pop 4]
+        P4a --> C4b{Is 8 > Top of Stack 7?}
+        C4b -- Yes, rule broken! --> P4b[Pop 7]
+        P4b --> C4c{Is Stack Empty?}
+        C4c -- Yes --> A4[Push 8]
+        A4 --> R4[(Stack: 8)]
+    end
+
+    R4 --> Finish([Done! Final Stack: 8])
+
+    %% Styling
+    classDef pop fill:#ffcccc,stroke:#cc0000,stroke-width:2px;
+    classDef push fill:#ccffcc,stroke:#00aa00,stroke-width:2px;
+    classDef stack fill:#cce5ff,stroke:#0066cc,stroke-width:2px;
+
+    class P3a,P4a,P4b pop;
+    class A1,A2,A3,A4 push;
+    class R1,R2,R3,R4 stack;
